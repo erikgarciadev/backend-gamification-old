@@ -10,7 +10,7 @@
         "dev": "nodemon ./src/index.ts",
         "lint": "eslint . --ext .ts",
         "start": "node ./lib/index.js",
-        "build-local": "npx tsc"
+        "build": "npx tsc"
     },
     "keywords": [],
     "author": "",
