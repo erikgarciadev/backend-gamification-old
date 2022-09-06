@@ -9,7 +9,7 @@
         "test:watch": "jest --watch",
         "dev": "nodemon ./src/index.ts",
         "lint": "eslint . --ext .ts",
-        "start": "node ./src/lib/index.js",
+        "start": "node ./lib/index.js",
         "build": "npx tsc"
     },
     "keywords": [],
