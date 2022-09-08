@@ -196,4 +196,5 @@ $RECYCLE.BIN/
 /lib
 /dist
 /src/lib
+/backup/*
 BackupData.*

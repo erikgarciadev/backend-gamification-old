@@ -9,7 +9,7 @@ class UtilController {
         try {
             await UtilService.downloadBackup(fileName)
 
-            const directoryPath = process.cwd() + '/'
+            const directoryPath = process.cwd() + '/backup/'
             res.download(directoryPath + fileName, fileName, (err) => {
                 if (err) {
                     res.status(500).send({
