@@ -3,6 +3,6 @@ import UtilController from '../controllers/util.controller'
 
 const utilRouter = Router()
 
-utilRouter.get('/downloadBackup', UtilController.dowloandBackup)
+utilRouter.get('/downloadBackup', UtilController.downloadBackup)
 
 export default utilRouter
