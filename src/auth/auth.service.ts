@@ -16,7 +16,20 @@ export class AuthService {
   ) {}
 
   async register(userObject: RegisterAuthDto) {
-    const { password } = userObject;
+    const { password, username } = userObject;
+    const findUser = await this.userModel.findOne({ username });
+    if (findUser) {
+      throw new HttpException(
+        {
+          message: 'El usuario ya existe',
+          error: 'El usuario ya existe',
+          errors: {
+            username: 'El usuario ya existe',
+          },
+        },
+        400,
+      );
+    }
     const plainToHash = await hash(password, 10);
     userObject = { ...userObject, password: plainToHash };
     return this.userModel.create(userObject);
@@ -25,7 +38,7 @@ export class AuthService {
   async login(userObjectLogin: LoginAuthDto) {
     const { username, password } = userObjectLogin;
     const findUser = await this.userModel.findOne({ username });
-    if (!findUser)
+    if (!findUser) {
       throw new HttpException(
         {
           message: 'El usuario y/o contraseña son incorrectas',
@@ -33,6 +46,7 @@ export class AuthService {
         },
         404,
       );
+    }
 
     const checkPassword = await compare(password, findUser.password);
 

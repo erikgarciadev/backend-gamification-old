@@ -6,9 +6,9 @@ import {
   IsUrl,
 } from 'class-validator';
 import { LoginAuthDto } from './login-auth.dto';
-import { ApiPropertyOptional, PartialType } from '@nestjs/swagger';
+import { ApiPropertyOptional } from '@nestjs/swagger';
 
-export class RegisterAuthDto extends PartialType(LoginAuthDto) {
+export class RegisterAuthDto extends LoginAuthDto {
   @ApiPropertyOptional({
     example: 'Erik',
     type: 'string',
